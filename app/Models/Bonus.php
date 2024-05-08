@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Bonus extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'bonus',
+        'user_id',
+    ];
 }

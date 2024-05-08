@@ -6,18 +6,18 @@
         <!-- Шапка -->
         <div class="header transparent">
             <div class="header-block section">
-                <a href="{{ route('home') }}"><img src={{asset('images/icons/logo.svg')}} alt=""></a>
+                <a href="{{ route('home') }}"><img src={{asset('assets/images/icons/logo.svg')}} alt=""></a>
                 <div class="header-block__menu">
                     <a href="{{ route('home') }}" class="header-block__menu-link">Главная</a>
                     <a href="{{ route('catalog') }}" class="header-block__menu-link">Услуги</a>
                     <a href="{{ route('about') }}" class="header-block__menu-link">О нас</a>
                     <a href="#footer" class="header-block__menu-link">Контакты</a>
-                    <form action="#" class="header-search">
-                        <input type="text" class="header-search__input">
-                        <button type="submit" class="header-search__button"><img src="{{asset('images/icons/Search.svg')}}"
+                    <form action="{{ route('catalog') }}" class="header-search" method="get">
+                        <input type="text" class="header-search__input" name="search">
+                        <button type="submit" class="header-search__button"><img src="{{asset('assets/images/icons/Search.svg')}}"
                                                                                  alt=""></button>
                     </form>
-                    <a onclick="openModal('reg')" class="header-block__menu-btn"><img src="{{asset('images/icons/User.svg')}}"
+                    <a onclick="openModal('reg')" class="header-block__menu-btn"><img src="{{asset('assets/images/icons/User.svg')}}"
                                                                                       alt=""></a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                 <div class="display-block__left-subtitle">ClearShine - компания, которая наведет порядок в вашем доме
                     или квартире. Уже более 5000 довольных клиентов. Мы будем рады навести комфорт в вашем месте.
                 </div>
-                <a href="#" class="display-block__left-link">заказать уборку</a>
+                <a href="{{ route('catalog') }}" class="display-block__left-link">заказать уборку</a>
                 <div class="display-block__left-info">
                     <div class="display-block__info-item">
                         <div class="display-block__info-cercle"></div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <img class="display-block__img" src="{{asset('images/display/man.png')}}">
+            <img class="display-block__img" src="{{asset('assets/images/display/man.png')}}">
         </div>
     </div>
 
@@ -70,7 +70,7 @@
                     животных, аллергиков, арендодателей
                 </div>
                 <a href="#" class="feature-block__item-link">Подробнее</a>
-                <img src="{{ asset('images/feature/img1.svg') }}" alt="" class="feature-block__item-img">
+                <img src="{{ asset('assets/images/feature/img1.svg') }}" alt="" class="feature-block__item-img">
             </div>
             <div class="feature-block__item">
                 <div class="feature-block__item-title">Уборка после<br>ремонта</div>
@@ -79,7 +79,7 @@
                     животных, аллергиков, арендодателей
                 </div>
                 <a href="#" class="feature-block__item-link">Подробнее</a>
-                <img src="{{ asset('images/feature/img2.svg') }}" alt="" class="feature-block__item-img">
+                <img src="{{ asset('assets/images/feature/img2.svg') }}" alt="" class="feature-block__item-img">
             </div>
             <div class="feature-block__item">
                 <div class="feature-block__item-title">Генеральная<br>уборка</div>
@@ -88,7 +88,7 @@
                     животных, аллергиков, арендодателей
                 </div>
                 <a href="#" class="feature-block__item-link">Подробнее</a>
-                <img src="{{ asset('images/feature/img3.svg') }}" alt="" class="feature-block__item-img">
+                <img src="{{ asset('assets/images/feature/img3.svg') }}" alt="" class="feature-block__item-img">
             </div>
         </div>
     </div>
@@ -118,9 +118,9 @@
                         <div class="banner-block__card-text">Сдача работы</div>
                     </div>
                 </div>
-                <a href="#" class="banner-block__numeric-btn">Заказать уборку</a>
+                <a href="{{ route('catalog') }}" class="banner-block__numeric-btn">Заказать уборку</a>
             </div>
-            <img src="{{asset('images/banner/img1.svg')}}" alt="" class="banner-block__img">
+            <img src="{{asset('assets/images/banner/img1.svg')}}" alt="" class="banner-block__img">
             <div class="banner-block__text">Проводите время с близкими,а уборка наша забота!</div>
         </div>
     </div>
@@ -134,7 +134,7 @@
                     сотрудничество договором. Оплата исключительно по факту выполнения. Вы проверяете результат и
                     платите тогда, когда он вас удовлетворяет.
                 </div>
-                <img src="{{ asset('images/about/img1.svg') }}" alt="" class="about-block__item-img">
+                <img src="{{ asset('assets/images/about/img1.svg') }}" alt="" class="about-block__item-img">
             </div>
             <div class="about-block__item">
                 <div class="about-block__item-title">Бережные моющие</div>
@@ -142,14 +142,14 @@
                     средства использовать в конкретных случаях, чтобы не повредить мебель и сохранить прежний блеск
                     поверхностей.
                 </div>
-                <img src="{{ asset('images/about/img2.svg') }}" alt="" class="about-block__item-img">
+                <img src="{{ asset('assets/images/about/img2.svg') }}" alt="" class="about-block__item-img">
             </div>
             <div class="about-block__item">
                 <div class="about-block__item-title">Гарантия качества</div>
                 <div class="about-block__item-subtitle">На объектах работают от 2 и более опытных клинеров. Комплексная
                     уборка делается в соответствии с нормами качества. Блеск от потолка до пола!
                 </div>
-                <img src="{{ asset('images/about/img3.svg') }}" alt="" class="about-block__item-img">
+                <img src="{{ asset('assets/images/about/img3.svg') }}" alt="" class="about-block__item-img">
             </div>
         </div>
     </div>

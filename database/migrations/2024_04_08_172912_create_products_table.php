@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('time_start')->nullable();
+            $table->integer('time_end');
+            $table->integer('cleaner_start')->nullable();
+            $table->integer('cleaner_end');
+            $table->string('little_description');
+            $table->string('description');
+            $table->integer('price');
+            $table->string('image');
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

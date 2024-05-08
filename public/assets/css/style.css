@@ -22,6 +22,49 @@
     margin: 0 auto;
 }
 
+.message_error{
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 20px 10px;
+    z-index: 10002;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cont{flex: 1}
+
+.message_success{
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 20px 10px;
+    z-index: 10002;
+}
+
+#error-message {
+    transition: 0.7s all;
+    opacity: 1;
+}
+
+#error-message.invisible {
+    opacity: 0;
+    display: none;
+}
+
+
 /* Шапка */
 
 
@@ -1131,7 +1174,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .modal.active{
@@ -1304,7 +1347,7 @@
         flex-direction: column;
         padding: 20px;
         border: 1px solid gainsboro;
-        grid-gap: 5px; 
+        grid-gap: 5px;
         width: 50%;
     }
     .admin-orders__head{
