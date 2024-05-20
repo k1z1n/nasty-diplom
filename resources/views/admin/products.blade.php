@@ -63,13 +63,13 @@
     </div>
     <script defer>
         document.addEventListener('DOMContentLoaded', function() {
-            var deleteButtons = document.querySelectorAll('.delete-button');
+            let deleteButtons = document.querySelectorAll('.delete-button');
 
             deleteButtons.forEach(function(button) {
                 button.addEventListener('click', function(e) {
                     e.preventDefault(); // Предотвращаем стандартное действие кнопки
-                    var formId = e.target.form.id; // Получаем ID формы
-                    var productId = formId.split('deleteForm')[1];
+                    let formId = e.target.form.id; // Получаем ID формы
+                    let productId = formId.split('deleteForm')[1];
                     if (confirm('Вы уверены, что хотите удалить этот продукт?')) {
                         // Если пользователь нажал "OK", отправляем форму
                         document.getElementById('deleteForm' + productId).submit();

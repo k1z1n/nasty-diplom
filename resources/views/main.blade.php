@@ -52,12 +52,31 @@
         <div class="calculator-block section">
             <div class="calculator-block__title">Калькулятор стоимости уборки с точностью до 99%.</div>
             <div class="calculator-block__subtitle">Это бесплатно и ни к чему не обязывает!</div>
-            <form action="#" class="calculator-block__flex">
-                <input type="text" placeholder="квартира" class="calculator-block__flex-input">
-                <input type="text" placeholder="м2" class="calculator-block__flex-input">
-                <button type="submit" class="calculator-block__flex-button">Посчитать</button>
+            <form action="" class="calculator-block__flex">
+                <select name="" id="room-type" class="calculator-block__flex-input">
+                    <option value="30">Квартира</option>
+                    <option value="40">Частный дом</option>
+                    <option value="50">Офис</option>
+                </select>
+                <input type="text" id="square-meters" required placeholder="м2" class="calculator-block__flex-input">
+                <button type="button" class="calculator-block__flex-button" onclick="calculateCost()">Посчитать</button>
             </form>
+            <div id="result" style="margin-top: 10px"></div>
         </div>
+
+        <script>
+            function calculateCost() {
+                let roomType = document.getElementById('room-type').value;
+                let squareMeters = document.getElementById('square-meters').value;
+
+                if (squareMeters.trim() !== "") {
+                    let result = roomType * squareMeters;
+                    document.getElementById('result').innerHTML = 'Стоимость уборки: ' + result + ' руб.';
+                } else {
+                    document.getElementById('result').innerHTML = '';
+                }
+            }
+        </script>
     </div>
 
     <!-- Преимущества -->
