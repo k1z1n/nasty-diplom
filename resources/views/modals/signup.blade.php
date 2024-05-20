@@ -19,10 +19,10 @@
         @error('surname')
         {{ $message }}
         @enderror
-        <input type="number" name="number" placeholder="Телефон" class="modal-window__input">
-        @error('number')
-        {{ $message }}
-        @enderror
+{{--        <input type="number" name="number" placeholder="Телефон" class="modal-window__input">--}}
+{{--        @error('number')--}}
+{{--        {{ $message }}--}}
+{{--        @enderror--}}
         <input type="password" name="password" placeholder="Пароль" class="modal-window__input">
         @error('password')
         {{ $message }}
