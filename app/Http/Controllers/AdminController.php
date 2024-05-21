@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -132,6 +133,12 @@ class AdminController extends Controller
         $product->update($data);
 
         return redirect()->route('admin.product')->with('success', 'Продукт успешно обновлен!');
+    }
+
+    public function deleteProduct($id){
+        $category = Product::findOrFail($id);
+        $category->delete();
+        return redirect()->back()->with('success', 'Продукт удален');
     }
 
 

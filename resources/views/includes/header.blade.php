@@ -17,10 +17,12 @@
                         src={{asset('assets/images/icons/User.svg')}} alt=""></a>
             @endguest
             @auth()
-                <a  href="{{ route('profile') }}" class="header-block__menu-btn"><img
-                        src={{asset('assets/images/icons/User.svg')}} alt=""></a>
-                @if(auth()->user()->status === 'admin')
-                    <a href="{{ route('admin') }}" class="header-block__menu-btn"><img
+
+                @if(auth()->user()->role === 'admin')
+                    <a href="{{ route('admin.main') }}" class="header-block__menu-btn"><img
+                            src={{asset('assets/images/icons/User.svg')}} alt=""></a>
+                @else
+                    <a href="{{ route('profile') }}" class="header-block__menu-btn"><img
                             src={{asset('assets/images/icons/User.svg')}} alt=""></a>
                 @endif
             @endauth

@@ -45,7 +45,7 @@
                     <div class="admin-servic__column">{{ $product->title }}</div>
                     <a href="{{ route('admin.product.edit', $product->id) }}" class="admin-servic__column">Редактировать</a>
                     <div class="admin-servic__column">
-                        <form action="" method="POST" id="deleteForm{{ $product->id }}">
+                        <form action="{{ route('admin.product.delete', $product->id) }}" method="POST" id="deleteForm{{ $product->id }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="admin-servic__column delete-button" style="background-color: transparent; font-size: 16px;">Удалить</button>

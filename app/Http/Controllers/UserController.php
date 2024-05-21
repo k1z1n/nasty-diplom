@@ -33,8 +33,11 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->attempt($credentials)) {
+        if ($user = auth()->attempt($credentials)) {
             $request->session()->regenerate();
+            if($user == 'admin'){
+                return redirect()->route('admin');
+            }
             return redirect()->route('profile');
         }
 
