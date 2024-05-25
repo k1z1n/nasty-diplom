@@ -27,7 +27,7 @@ class OrderController extends Controller
         $endTime = Carbon::createFromTime(23, 0, 0);
 
         if ($orderTime->lt($startTime) || $orderTime->gt($endTime)) {
-            return back()->with('error', 'Заказы принимаются только с 8 утра до 11 вечера.');
+            return back()->withInput()->with('error', 'Заказы принимаются только с 8 утра до 11 вечера.');
         }
 
         // Проверка занятости
@@ -38,10 +38,8 @@ class OrderController extends Controller
             $existingOrderTime = Carbon::parse($existingOrder->time);
             $existingOrderEndTime = $existingOrderTime->copy()->addMinutes($existingOrder->product->time_end);
 
-            // Проверка пересечений с новым заказом
             $newOrderEndTime = $orderTime->copy()->addMinutes($product->time_end);
 
-            // Если новый заказ пересекается с существующим заказом
             if ($orderTime->between($existingOrderTime, $existingOrderEndTime) ||
                 $newOrderEndTime->between($existingOrderTime, $existingOrderEndTime) ||
                 $orderTime->lt($existingOrderTime) && $newOrderEndTime->gt($existingOrderEndTime)) {

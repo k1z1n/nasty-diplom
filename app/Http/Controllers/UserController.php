@@ -36,7 +36,7 @@ class UserController extends Controller
         if ($user = auth()->attempt($credentials)) {
             $request->session()->regenerate();
             if($user == 'admin'){
-                return redirect()->route('admin');
+                return redirect()->route('admin.main');
             }
             return redirect()->route('profile');
         }

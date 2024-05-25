@@ -25,7 +25,8 @@
                 <div class="profile-orders__head">
                     <div class="profile-orders__name">Название</div>
                     <div class="profile-orders__date">Дата</div>
-                    <div class="profile-orders__time">Время</div>
+                    <div class="profile-orders__time">Время начала</div>
+                    <div class="profile-orders__time">Время конца</div>
                     <div class="profile-orders__cost">Стоимость</div>
                     <div class="profile-orders__cost">Статус</div>
                 </div>
@@ -34,6 +35,7 @@
                         <a href="{{ route('product', $order->product->id) }}" class="profile-orders__name">{{ $order->product->title }}</a>
                         <div class="profile-orders__date">{{ $order->date }}</div>
                         <div class="profile-orders__time">{{ $order->time }}</div>
+                        <div class="profile-orders__time">{{ $order->time_time }}</div>
                         <div class="profile-orders__cost">{{ $order->total_price }}</div>
                         <div class="profile-orders__cost">{{ $order->status }}</div>
                     </div>

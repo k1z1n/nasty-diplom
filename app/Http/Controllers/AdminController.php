@@ -16,7 +16,13 @@ class AdminController extends Controller
     {
         $orders = Order::all();
         $orders->each(function ($order) {
+            $time = $order->product->time_end;
+            $timeToAdd = Carbon::createFromFormat('H:i', sprintf('%02d:00', $time));
             $order->date = Carbon::parse($order->date)->translatedFormat('d F Y');
+            $order->time = Carbon::parse($order->time)->format('H:i');
+            $initialCarbonTime = Carbon::createFromFormat('H:i', $order->time);
+            $resultTime = $initialCarbonTime->addHours($timeToAdd->hour);
+            $order->time_time= $resultTime->format('H:i');
         });
         $statuses = ['создан', 'принят', 'отменен', 'выполнен'];
         return view('admin.main', compact('orders', 'statuses'));
@@ -59,10 +65,23 @@ class AdminController extends Controller
         $category->update($data);
         return redirect()->back()->with('success', 'Категория обновлена');
     }
+
+    public function deleteCategoryView($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('admin.delete-confirm-category', compact('category'));
+    }
+
+    public function deleteProductView($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.delete-confirm-product', compact('product'));
+    }
+
     public function deleteCategory($id){
         $category = Category::findOrFail($id);
         $category->delete();
-        return redirect()->back()->with('success', 'Категория удалена');
+        return redirect()->route('admin.category')->with('success', 'Категория удалена');
     }
 //        Продукты
     public function adminProductsView()
@@ -138,7 +157,7 @@ class AdminController extends Controller
     public function deleteProduct($id){
         $category = Product::findOrFail($id);
         $category->delete();
-        return redirect()->back()->with('success', 'Продукт удален');
+        return redirect()->route('admin.product')->with('success', 'Продукт удален');
     }
 
 

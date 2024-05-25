@@ -17,8 +17,20 @@
                         <button type="submit" class="header-search__button"><img src="{{asset('assets/images/icons/Search.svg')}}"
                                                                                  alt=""></button>
                     </form>
-                    <a onclick="openModal('reg')" class="header-block__menu-btn"><img src="{{asset('assets/images/icons/User.svg')}}"
-                                                                                      alt=""></a>
+                    @guest()
+                        <a onclick="openModal('reg')" class="header-block__menu-btn"><img
+                                src={{asset('assets/images/icons/User.svg')}} alt=""></a>
+                    @endguest
+                    @auth()
+
+                        @if(auth()->user()->role === 'admin')
+                            <a href="{{ route('admin.main') }}" class="header-block__menu-btn"><img
+                                    src={{asset('assets/images/icons/User.svg')}} alt=""></a>
+                        @else
+                            <a href="{{ route('profile') }}" class="header-block__menu-btn"><img
+                                    src={{asset('assets/images/icons/User.svg')}} alt=""></a>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>

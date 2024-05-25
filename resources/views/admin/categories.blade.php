@@ -44,6 +44,7 @@
                     <div class="admin-servic__column">{{ $category->title }}</div>
                     <a href="{{ route('admin.category.edit', $category->id) }}" class="admin-servic__column" onclick="openModal('update')">Редактировать</a>
                     <div class="admin-servic__column">
+                        <a href="{{ route('admin.category.delete.view', $category->id) }}">Удалить</a>
                         <form action="{{ route('admin.category.delete', $category->id) }}" method="POST"
                               id="deleteForm{{ $category->id }}">
                             @csrf

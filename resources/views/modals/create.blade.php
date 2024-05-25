@@ -4,10 +4,10 @@
         <div class="close">&times;</div>
         <div class="modal-window__title">Регистрация заказа</div>
         <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <input type="text" name="product_title" placeholder="{{ $product->title }}" class="modal-window__input" disabled>
-        <input type="number" name="area" placeholder="Площадь" class="modal-window__input" min="1">
-        <input type="date" name="date" placeholder="Выбрать дату" id="" class="modal-window__input">
-        <input type="time" name="time" placeholder="Выбрать время" id="" class="modal-window__input">
+        <input type="text" name="product_title" placeholder="{{ $product->title }}" value="{{ old('product_title') }}" class="modal-window__input" disabled>
+        <input type="number" name="area" placeholder="Площадь" class="modal-window__input" value="{{ old('area') }}" min="1">
+        <input type="date" name="date" placeholder="Выбрать дату" id="" value="{{ old('date') }}" class="modal-window__input">
+        <input type="time" name="time" placeholder="Выбрать время" id="" value="{{ old('time') }}" class="modal-window__input">
         <div class="modal-window__total-price-container">
             <span class="modal-window__total-price-label">Итоговая цена:</span>
             <span class="modal-window__total-price" id="totalPrice">0 ₽</span>

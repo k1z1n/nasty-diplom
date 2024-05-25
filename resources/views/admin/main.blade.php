@@ -29,6 +29,8 @@
                 </div>
                 <div class="admin-orders__column">Заказ ID</div>
                 <div class="admin-orders__column">Дата</div>
+                <div class="admin-orders__column">Время начала</div>
+                <div class="admin-orders__column">Время конца</div>
                 <div class="admin-orders__column">Пользователь</div>
                 <div class="admin-orders__column">Статус</div>
                 <div class="admin-orders__column">Цена</div>
@@ -41,6 +43,8 @@
                         </div>
                         <div class="admin-orders__column">#{{ $order->id }}</div>
                         <div class="admin-orders__column">{{ $order->date }}</div>
+                        <div class="admin-orders__column">{{ $order->time }}</div>
+                        <div class="admin-orders__column">{{ $order->time_time }}</div>
                         <div class="admin-orders__column">{{ $order->user->username }}</div>
                         <div class="admin-orders__column">
                             <span class="admin-orders__column-cercle"></span>

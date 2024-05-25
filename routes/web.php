@@ -50,6 +50,7 @@ Route::middleware('auth.admin')->prefix('admin')->group(function () {
     Route::post('/products', [AdminController::class, 'storeProduct'])->name('admin.product.store');
     Route::get('/products/{id}/edit', [AdminController::class, 'editProduct'])->name('admin.product.edit');
     Route::put('/products/{id}', [AdminController::class, 'updateProduct'])->name('admin.product.update');
+    Route::get('/products/delete/{id}', [AdminController::class, 'deleteProductView'])->name('admin.product.delete.view');
     Route::delete('/products/delete/{id}', [AdminController::class, 'deleteProduct'])->name('admin.product.delete');
 
     Route::get('/categories', [AdminController::class, 'adminCategoriesView'])->name('admin.category');
@@ -57,5 +58,6 @@ Route::middleware('auth.admin')->prefix('admin')->group(function () {
     Route::post('/categories', [AdminController::class, 'storeCategory'])->name('admin.category.store');
     Route::get('/categories/{id}/edit', [AdminController::class, 'editCategory'])->name('admin.category.edit');
     Route::put('/categories/{id}', [AdminController::class, 'updateCategory'])->name('admin.category.update');
+    Route::get('/categories/delete/{id}', [AdminController::class, 'deleteCategoryView'])->name('admin.category.delete.view');
     Route::delete('/categories/delete/{id}', [AdminController::class, 'deleteCategory'])->name('admin.category.delete');
 });
